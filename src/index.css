@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+@theme {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-card: var(--card);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+
+:root {
+  --paper: #f6f8fb;
+  --ink: #0b1220;
+  --muted: #5b667a;
+  --line: #dde3ec;
+  --accent: #0369a1;
+  --card: #ffffff;
+}
+
+
+:root.dark {
+  --paper: #070b14;
+  --ink: #e6edf7;
+  --muted: #8b97ad;
+  --line: #1a2335;
+  --accent: #22d3ee;
+  --card: #0c1220;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(var(--color-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse at top, black 20%, transparent 75%);
+  opacity: 0.7;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-paper);
+}
+
+@utility section-title {
+  @apply text-3xl font-semibold tracking-tight sm:text-4xl;
+}
