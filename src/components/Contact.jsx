@@ -1,7 +1,7 @@
 import Reveal from './Reveal'
 
 const EMAIL = 'muhammadakmalbadillah@gmail.com'
-const LINKEDIN = 'https://www.linkedin.com/in/username-kamu'
+const LINKEDIN = 'https://www.linkedin.com/in/muhammad-akmal-badilah-8572513aa/'
 const GITHUB = 'https://github.com/muhammadakmalbadilah'
 
 const links = [
