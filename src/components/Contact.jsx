@@ -1,6 +1,6 @@
 import Reveal from './Reveal'
 
-const EMAIL = 'emailkamu@example.com'
+const EMAIL = 'muhammadakmalbadillah@gmail.com'
 const LINKEDIN = 'https://www.linkedin.com/in/username-kamu'
 const GITHUB = 'https://github.com/muhammadakmalbadilah'
 
