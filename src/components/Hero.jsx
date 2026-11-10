@@ -30,7 +30,7 @@ export default function Hero() {
             View project
           </a>
           <a
-            href="#kontak"
+            href="#contact"
             className="rounded-full border border-line px-6 py-3 transition hover:border-accent hover:text-accent"
           >
             Contact Me
