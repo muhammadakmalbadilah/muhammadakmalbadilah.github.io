@@ -90,7 +90,7 @@ export default function Projects() {
             return (
               <article
                 key={project.repo ?? project.url}
-                className="w-full flex-none snap-start rounded-2xl border border-line bg-card p-6 sm:w-[calc(100%-1rem)] sm:p-8 lg:w-[520px]"
+                className="flex w-full flex-none snap-start flex-col rounded-2xl border border-line bg-card p-6 sm:w-[calc(100%-1rem)] sm:p-8 lg:w-[520px]"
               >
                 <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-widest text-muted">
                   <span>
@@ -120,32 +120,33 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-
-                <div className="mt-6 flex flex-wrap items-center gap-4 border-t border-line pt-5">
-                  <a
-                    href={codeUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-sm font-medium text-accent hover:underline"
-                  >
-                    View the code at {project.source ?? "GitHub"} ↗
-                  </a>
-                  {demo && (
+                
+                <div className="mt-auto">
+                  <div className="mt-6 flex flex-wrap items-center gap-4 border-t border-line pt-5">
                     <a
-                      href={demo}
+                      href={codeUrl}
                       target="_blank"
                       rel="noreferrer"
                       className="text-sm font-medium text-accent hover:underline"
                     >
-                      Demo ↗
+                      View the code at {project.source ?? "GitHub"} ↗
                     </a>
-                  )}
-                  {gh && (
-                    <span className="ml-auto font-mono text-[11px] text-muted">
-                      {gh.language && `${gh.language} · `}★{" "}
-                      {gh.stargazers_count}
-                    </span>
-                  )}
+                    {demo && (
+                      <a
+                        href={demo}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-sm font-medium text-accent hover:underline"
+                      >
+                        Demo ↗
+                      </a>
+                    )}
+                    {gh && (
+                      <span className="ml-auto font-mono text-[11px] text-muted">
+                        {gh.language && `${gh.language} · `}★ {gh.stargazers_count}
+                      </span>
+                    )}
+                  </div>
                 </div>
               </article>
             );

@@ -4,7 +4,6 @@ export default function Hero() {
   return (
     <section className="section-wrap pt-20 pb-24 sm:pt-28 sm:pb-32">
       <div className="grid gap-12 lg:grid-cols-[1fr_320px] lg:items-end">
-        {/* Kiri — headline utama */}
         <Reveal>
           <p className="section-heading">Backend Developer</p>
           <h1 className="max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
@@ -34,7 +33,6 @@ export default function Hero() {
           </div>
         </Reveal>
 
-        {/* Kanan — status card kecil, memberi kesan "sedang aktif" */}
         <Reveal delay={150}>
           <div className="rounded-2xl border border-line bg-card p-6 lg:mb-2">
             <div className="flex items-center gap-2">
