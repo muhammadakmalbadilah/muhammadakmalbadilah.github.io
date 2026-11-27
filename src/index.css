@@ -1,8 +1,6 @@
 @import "tailwindcss";
 
-
 @custom-variant dark (&:where(.dark, .dark *));
-
 
 @theme {
   --color-paper: var(--paper);
@@ -11,35 +9,31 @@
   --color-line: var(--line);
   --color-accent: var(--accent);
   --color-card: var(--card);
-
-  --font-sans: -apple-system, BlinkMacSystemFont, "Inter", system-ui, sans-serif;
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
-
 :root {
-  --paper: #f6f8fb;
-  --ink: #0b1220;
-  --muted: #5b667a;
-  --line: #dde3ec;
-  --accent: #0369a1;
+  --paper: #fafaf8;
+  --ink: #1a1a1a;
+  --muted: #6b6b6b;
+  --line: #e5e5e0;
+  --accent: #2563eb;
   --card: #ffffff;
 }
 
-
 :root.dark {
-  --paper: #070b14;
-  --ink: #e6edf7;
-  --muted: #8b97ad;
-  --line: #1a2335;
-  --accent: #22d3ee;
-  --card: #0c1220;
+  --paper: #0f0f0f;
+  --ink: #ededed;
+  --muted: #888888;
+  --line: #262626;
+  --accent: #60a5fa;
+  --card: #161616;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 4rem;
+  scroll-padding-top: 5rem;
 }
 
 body {
@@ -47,26 +41,48 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  transition: background-color 0.3s, color 0.3s;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-
+/* Subtle grain texture — bukan grid dot yang sudah umum */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
-  background-image: radial-gradient(var(--color-line) 1px, transparent 1px);
-  background-size: 28px 28px;
-  mask-image: radial-gradient(ellipse at top, black 20%, transparent 75%);
-  opacity: 0.7;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
 }
 
 ::selection {
   background: var(--color-accent);
-  color: var(--color-paper);
+  color: white;
+}
+
+/* Section title dengan garis atas — konsisten di semua section */
+@utility section-heading {
+  @apply font-mono text-xs tracking-widest uppercase text-muted mb-3;
 }
 
 @utility section-title {
-  @apply text-3xl font-semibold tracking-tight sm:text-4xl;
+  @apply text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.1];
+}
+
+@utility section-wrap {
+  @apply max-w-6xl mx-auto px-6 sm:px-8;
+}
+
+/* Animasi reveal yang lebih halus dari sebelumnya */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }

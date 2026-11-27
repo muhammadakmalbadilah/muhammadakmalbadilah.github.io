@@ -1,54 +1,56 @@
-import { skills, learning } from '../data/skills'
-import Reveal from './Reveal'
+import { skills, learning } from "../data/skills";
+import Reveal from "./Reveal";
 
 export default function Skills() {
   return (
-    <section id="skills" className="border-t border-line">
-      <div className="mx-auto max-w-3xl px-6 py-24">
-        <Reveal>
-            <h2 className="font-display text-3xl font-bold">Skills</h2>
-        
+    <section id="skills" className="section-wrap border-t border-line py-20 sm:py-28">
+      <Reveal>
+        <p className="section-heading">04 — Toolkit</p>
+        <h2 className="section-title">Skills</h2>
+      </Reveal>
 
-        <div className="mt-10 space-y-8">
+      <Reveal delay={100}>
+        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {skills.map((group) => (
-              <div
+            <div
               key={group.group}
-              className="grid gap-3 sm:grid-cols-[10rem_1fr]"
-              >
-              <h3 className="text-sm uppercase tracking-widest text-muted">
+              className="rounded-2xl border border-line bg-card p-6"
+            >
+              <h3 className="font-mono text-xs uppercase tracking-widest text-muted">
                 {group.group}
               </h3>
-              <ul className="flex flex-wrap gap-2">
+              <ul className="mt-4 flex flex-wrap gap-2">
                 {group.items.map((item) => (
-                    <li
+                  <li
                     key={item}
-                    className="rounded-full border border-line px-4 py-1.5 text-sm"
-                    >
+                    className="rounded-md border border-line px-2.5 py-1 font-mono text-[11px] text-ink"
+                  >
                     {item}
                   </li>
                 ))}
               </ul>
             </div>
           ))}
-          
-          <div className="grid gap-3 sm:grid-cols-[10rem_1fr]">
-            <h3 className="text-sm uppercase tracking-widest text-accent">
-              Currently being studied
-            </h3>
-            <ul className="flex flex-wrap gap-2">
-              {learning.map((item) => (
-                  <li
-                  key={item}
-                  className="rounded-full border border-dashed border-accent/50 px-4 py-1.5 text-sm text-muted"
-                  >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
-        </Reveal>
-      </div>
+      </Reveal>
+
+      <Reveal delay={200}>
+        <div className="mt-6 rounded-2xl border border-dashed border-line p-6">
+          <h3 className="font-mono text-xs uppercase tracking-widest text-muted">
+            Currently being studied
+          </h3>
+          <ul className="mt-3 flex flex-wrap gap-2">
+            {learning.map((item) => (
+              <li
+                key={item}
+                className="rounded-md bg-line/50 px-2.5 py-1 font-mono text-[11px] text-muted"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Reveal>
     </section>
-  )
+  );
 }
